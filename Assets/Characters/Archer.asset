@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61325c8432eb3c4fa5ae74ba2d48c72, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  className: Archer
+  characterModel: {fileID: 5345705090480270259, guid: 3b917da5784b6374cbbdb0776c146d39, type: 3}
+  characterLocation: {x: -3.66, y: -0.3, z: 0}
+  chanceHead: 0.2
+  chanceArms: 0.4
+  chanceBody: 0.8
+  chanceLegs: 0.4
+  maxHealth: 30
+  curHealth: 20
+  attackDamage: 6
+  addAttackChance: 0.1
+  pierceAttackDamage: 2
+  defence: 4

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7d0c45ddf87b24b82cd9000318f7d8, type: 3}
+  m_Name: DeathBringer
+  m_EditorClassIdentifier: 
+  enemyName: DeathBringer
+  enemyModel: {fileID: 4546492452336243085, guid: 451db759d194ad841a1458aea6cc5dd6, type: 3}
+  enemyLocation: {x: 3.34, y: 0.11, z: 0}
+  chanceHead: 0.2
+  chanceArms: 0.6
+  chanceBody: 0.8
+  chanceLegs: 0.6
+  multHead: 3
+  multArms: 2
+  multBody: 1
+  multLegs: 2
+  maxHealth: 40
+  curHealth: 40
+  attackDamage: 10
+  pierceAttackDamage: 5
+  defence: 6
