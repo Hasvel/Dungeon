@@ -23,6 +23,4 @@ public class PlayerData : ScriptableObject
     public float addAttackChance;
     public int pierceAttackDamage;
     public int defence;
-
-    // testing
 }
