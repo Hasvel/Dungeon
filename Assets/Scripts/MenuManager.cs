@@ -14,6 +14,16 @@ public class MenuManager : MonoBehaviour
     }
 
     public Image classBackground;
+    public Text className;
+    public Slider difficultySlider;
+
+    private int difficulty = 0;
+
+    public void Start()
+    {
+        //Adds a listener to the main slider and invokes a method when the value changes.
+        difficultySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+    }
 
     public void StartNewGame()
     {
@@ -32,12 +42,23 @@ public class MenuManager : MonoBehaviour
         switch (character)
         {
             case Characters.ARCHER:
-                classBackground.color = 
+                classBackground.color = new Color32(71, 190, 177, 255);
+                className.text = "Archer";
                 break;
             case Characters.KNIGHT:
+                classBackground.color = new Color32(190, 71, 79, 255);
+                className.text = "Knight";
                 break;
             case Characters.KING:
+                classBackground.color = new Color32(71, 136, 190, 255);
+                className.text = "King";
                 break;
         }
+    }
+
+    public void ValueChangeCheck()
+    {
+        difficulty = (int)difficultySlider.value;
+        Debug.Log(difficulty);
     }
 }
