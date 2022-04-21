@@ -7,6 +7,7 @@ public class PlayerData : ScriptableObject
 {
     public string playerName;
     public int currentLevel;
+    public int difficulty;
     public int gold;
 
     public CharacterData character;

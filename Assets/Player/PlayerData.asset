@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a579090410a54e976537a13c6f58b, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerName: Johnny
+  playerName: awda
   currentLevel: 1
-  gold: 10
-  character: {fileID: 11400000, guid: 134d939d6f22517429eb8aa05c9bd42e, type: 2}
+  difficulty: 0
+  gold: 0
+  character: {fileID: 11400000, guid: b99af9822bea2ee44b5e21742382069c, type: 2}
+  chanceHead: 0
+  chanceArms: 0
+  chanceBody: 0
+  chanceLegs: 0
+  maxHealth: 0
+  curHealth: 0
+  attackDamage: 0
+  addAttackChance: 0
+  pierceAttackDamage: 0
+  defence: 0

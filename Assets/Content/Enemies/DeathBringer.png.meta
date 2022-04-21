@@ -360,6 +360,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2812,6 +2813,119 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      DeathBringer_105: 2348037045332253990
+      DeathBringer_109: -1018472505860163505
+      DeathBringer_57: -2374986288182930591
+      DeathBringer_62: 2628289247299935267
+      DeathBringer_24: 4786744793563930582
+      DeathBringer_2: 8618702254217074327
+      DeathBringer_49: -2265657647090875353
+      DeathBringer_56: 526363159885491351
+      DeathBringer_73: -2110851049660741470
+      DeathBringer_55: -3587610621663157196
+      DeathBringer_98: -7572552180268037620
+      DeathBringer_21: 1014548800655383814
+      DeathBringer_28: 7730205149205186926
+      DeathBringer_67: 3925942575399950718
+      DeathBringer_85: 4065686970408041646
+      DeathBringer_87: -7296416447395196238
+      DeathBringer_100: 7241047098698765804
+      DeathBringer_34: -6493930776513716709
+      DeathBringer_40: -2945393351943380417
+      DeathBringer_80: 1591246252099868808
+      DeathBringer_91: 1857089066016689361
+      DeathBringer_106: -4359071960329090031
+      DeathBringer_76: -3850066875431008407
+      DeathBringer_72: 8751223445102796532
+      DeathBringer_44: -8392541900586048908
+      DeathBringer_65: 5113874916074915790
+      DeathBringer_6: -3409306725043477089
+      DeathBringer_33: -1995893049916196533
+      DeathBringer_42: -3142174445009971392
+      DeathBringer_31: -3520622513810437268
+      DeathBringer_30: -908565935219214836
+      DeathBringer_27: 2086291540704334473
+      DeathBringer_13: -1738844054873740506
+      DeathBringer_20: 6215662532270403640
+      DeathBringer_81: -5921385777346935208
+      DeathBringer_93: 7900554171049187504
+      DeathBringer_25: 8738957767633680377
+      DeathBringer_66: 4295389106888417168
+      DeathBringer_5: -6343244605403351655
+      DeathBringer_60: 4921286821921389534
+      DeathBringer_94: -8240133041780457757
+      DeathBringer_110: 6803334831352433726
+      DeathBringer_107: 1825717247291867128
+      DeathBringer_53: 1166780897974603647
+      DeathBringer_86: -7174202950878092114
+      DeathBringer_58: -7853563069484208692
+      DeathBringer_89: -5069743792722996121
+      DeathBringer_11: 4330555838083742449
+      DeathBringer_103: 8592539468197693893
+      DeathBringer_45: 24166508101006245
+      DeathBringer_82: -5718109767976963321
+      DeathBringer_51: -1051689129788476889
+      DeathBringer_37: -8396877980822705788
+      DeathBringer_8: -1267590961632160941
+      DeathBringer_92: 4997793783068813474
+      DeathBringer_47: -4681926433114350322
+      DeathBringer_71: -6884647820730836247
+      DeathBringer_63: 5665960862094993793
+      DeathBringer_75: 2858278157152989813
+      DeathBringer_19: 4935133528275276568
+      DeathBringer_18: 4241927529086206905
+      DeathBringer_38: -8209652239429265540
+      DeathBringer_104: -575984817014145020
+      DeathBringer_84: -2519721286228007231
+      DeathBringer_22: 7724272285506050381
+      DeathBringer_7: 3675476800711527681
+      DeathBringer_70: 502023930541098443
+      DeathBringer_1: 1601875439948708098
+      DeathBringer_3: -3382527112559669282
+      DeathBringer_16: -924053255098267290
+      DeathBringer_46: 3965292261838380353
+      DeathBringer_48: -8269987690028139624
+      DeathBringer_54: 1185726043150765719
+      DeathBringer_95: 8050131952467319243
+      DeathBringer_61: -7474206304619453709
+      DeathBringer_99: 867240392959021679
+      DeathBringer_79: 6944494708194975152
+      DeathBringer_111: -810911094403285262
+      DeathBringer_102: 2251357339119843827
+      DeathBringer_64: 602939232551606203
+      DeathBringer_69: 4684333971099809124
+      DeathBringer_78: 2079400035754227306
+      DeathBringer_39: 2650674210343129066
+      DeathBringer_4: -4747764352590831413
+      DeathBringer_77: -7110063454584305203
+      DeathBringer_108: 8067189222426457872
+      DeathBringer_101: 2445705297768322808
+      DeathBringer_35: -9185553955899909507
+      DeathBringer_29: -6305493864905115018
+      DeathBringer_12: 7986332734506426259
+      DeathBringer_96: -7845349599476646695
+      DeathBringer_83: -1509436451119207708
+      DeathBringer_50: 2311407123857247721
+      DeathBringer_68: 6229925650660400575
+      DeathBringer_59: -4385018993928487489
+      DeathBringer_88: 1548074565043699580
+      DeathBringer_90: 4024348453813761207
+      DeathBringer_9: 246896908707175156
+      DeathBringer_23: 1246039033230771664
+      DeathBringer_32: 7213766495943317932
+      DeathBringer_17: -1582884873611395285
+      DeathBringer_36: 5656989528832938241
+      DeathBringer_0: -111117421060086654
+      DeathBringer_14: -8224548394971395511
+      DeathBringer_41: -5246366629464765062
+      DeathBringer_26: -6873547070168972242
+      DeathBringer_74: -2980003998897271672
+      DeathBringer_15: -3419629817390109469
+      DeathBringer_97: 3165175126901931068
+      DeathBringer_10: 574500915216762206
+      DeathBringer_52: -9097783062522798217
+      DeathBringer_43: 784232199362106506
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

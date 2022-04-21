@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Samurai_6: -7609848411548816580
+      Samurai_1: 6196420938707770456
+      Samurai_2: 6503449420296021827
+      Samurai_7: -2053153706787843333
+      Samurai_4: -8047419291584325457
+      Samurai_5: 675213387862437324
+      Samurai_3: -6148577968312177951
+      Samurai_0: -2478889539282618257
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

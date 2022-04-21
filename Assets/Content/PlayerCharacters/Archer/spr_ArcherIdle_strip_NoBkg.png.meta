@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spr_ArcherIdle_strip_NoBkg_2: -8566011410936821065
+      spr_ArcherIdle_strip_NoBkg_7: -806107622674688865
+      spr_ArcherIdle_strip_NoBkg_0: 2094173765588758402
+      spr_ArcherIdle_strip_NoBkg_6: 491904992813365871
+      spr_ArcherIdle_strip_NoBkg_5: -7083488126287164150
+      spr_ArcherIdle_strip_NoBkg_4: 8958829500029004487
+      spr_ArcherIdle_strip_NoBkg_3: 6682560192602085873
+      spr_ArcherIdle_strip_NoBkg_1: 6186148728254529291
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
