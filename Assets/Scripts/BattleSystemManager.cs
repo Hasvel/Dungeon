@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class BattleSystemManager : MonoBehaviour
@@ -25,10 +26,9 @@ public class BattleSystemManager : MonoBehaviour
     }
 
     public PlayerData player;
-    private CharacterData character;
     public EnemyData enemy;
+    private GameObject enemyObj;
 
-    private int playerHealth;
     private int enemyHealth;
 
     private BattleState battleState;
@@ -46,22 +46,19 @@ public class BattleSystemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character = player.character;
-
         battleState = BattleState.START;
         curBodyRegion = BodyRegion.HEAD;
 
-        playerHealth = character.curHealth;
         enemyHealth = enemy.curHealth;
 
         // UI
         announcementText.enabled = false;
         playerNameText.text = player.playerName;
-        classNameText.text = character.className;
+        classNameText.text = player.className;
 
-        playerHealthBar.maxValue = character.maxHealth;
+        playerHealthBar.maxValue = player.maxHealth;
         enemyHealthBar.maxValue = enemy.maxHealth;
-        playerHealthBar.value = playerHealth;
+        playerHealthBar.value = player.curHealth;
         enemyHealthBar.value = enemyHealth;
 
         StartCoroutine(BeginBattle());
@@ -76,8 +73,8 @@ public class BattleSystemManager : MonoBehaviour
     IEnumerator BeginBattle()
     {
         // spawn characters on the platforms
-        Instantiate(character.characterModel.gameObject, character.characterLocation, character.characterModel.transform.rotation);
-        Instantiate(enemy.enemyModel.gameObject, enemy.enemyLocation, enemy.enemyModel.transform.rotation);
+        Instantiate(player.characterModel.gameObject, player.characterLocation, player.characterModel.transform.rotation);
+        enemyObj = Instantiate(enemy.enemyModel.gameObject, enemy.enemyLocation, enemy.enemyModel.transform.rotation);
 
         // set the characters stats in HUD displays
         //playerStatusHUD.SetStatusHUD(playerStatus);
@@ -90,6 +87,60 @@ public class BattleSystemManager : MonoBehaviour
 
         // let player select his action now!    
         yield return StartCoroutine(PlayerTurn());
+    }
+
+    public void OnAttackButtonPress()
+    {
+        // don't allow player to click on 'attack'
+        // button if it's not his turn!
+        if (battleState != BattleState.PLAYERTURN)
+            return;
+
+        // allow only a single action per turn
+        if (!hasClicked)
+        {
+            StartCoroutine(PlayerAttack());
+
+            // block user from repeatedly 
+            // pressing attack button  
+            hasClicked = true;
+        }
+    }
+
+    public void OnRunBattonPress()
+    {
+        if (battleState != BattleState.PLAYERTURN)
+            return;
+
+        if (!hasClicked)
+        {
+            float runRolledChance = Random.Range(0.0f, 1.0f);
+            if(runRolledChance <= 0.5)
+            {
+                SceneManager.LoadScene("Doors");
+            }
+            else
+            {
+                StartCoroutine(EnemyTurn());
+            }
+
+            hasClicked = true;
+        }
+    }
+
+    public void OnMoveNextButtonPress()
+    {
+        if(battleState == BattleState.WIN)
+        {
+            // saving
+            player.currentLevel++;
+            SceneManager.LoadScene("Doors");
+        }
+        else if (battleState == BattleState.LOST)
+        {
+            // glory table
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     IEnumerator PlayerTurn()
@@ -113,36 +164,36 @@ public class BattleSystemManager : MonoBehaviour
         switch (bodyIndex)
         {
             case 0:
-                neededChance = character.chanceHead;
+                neededChance = player.chanceHead;
                 break;
             case 1:
-                neededChance = character.chanceArms;
+                neededChance = player.chanceArms;
                 break;
             case 2:
-                neededChance = character.chanceBody;
+                neededChance = player.chanceBody;
                 break;
             case 3:
-                neededChance = character.chanceLegs;
+                neededChance = player.chanceLegs;
                 break;
         }
 
         // Determing is attack succesful
         if (attackRolledChance <= neededChance)
         {
-            playerHealth -= enemy.attackDamage;
-            playerHealthBar.value = playerHealth;
-            StartCoroutine(ShowMessage("Enemy's Hit!", 3));
+            player.curHealth -= enemy.attackDamage;
+            playerHealthBar.value = player.curHealth;
+            StartCoroutine(ShowMessage("Enemy Hits!", 3));
         }
         else
         {
-            StartCoroutine(ShowMessage("Enemy's Miss", 3));
+            StartCoroutine(ShowMessage("Enemy Misses", 3));
         }
         Debug.Log($"Enemy Turn! Rolled - {attackRolledChance}, Needed - {neededChance}");
-        Debug.Log($"Player Health: {playerHealth}");
+        Debug.Log($"Player Health: {player.curHealth}");
         yield return new WaitForSeconds(3);
 
         // End of fight condition
-        if (playerHealth <= 0)
+        if (player.curHealth <= 0)
         {
             // if the player health drops to 0 
             // we have lost the battle...
@@ -159,28 +210,10 @@ public class BattleSystemManager : MonoBehaviour
         }
     }
 
-    public void OnAttackButtonPress()
-    {
-        // don't allow player to click on 'attack'
-        // button if it's not his turn!
-        if (battleState != BattleState.PLAYERTURN)
-            return;
-
-        // allow only a single action per turn
-        if (!hasClicked)
-        {
-            StartCoroutine(PlayerAttack());
-
-            // block user from repeatedly 
-            // pressing attack button  
-            hasClicked = true;
-        }
-    }
-
     IEnumerator PlayerAttack()
     {
         // Player rolls dice
-        float attackRolledChance = Random.Range(0.0f, 1.0f) - character.addAttackChance;
+        float attackRolledChance = Random.Range(0.0f, 1.0f) - player.addAttackChance;
 
         // Determing current chance of current body part
         float neededChance = 0.2f;
@@ -208,7 +241,7 @@ public class BattleSystemManager : MonoBehaviour
         // Determing if is attack succesful
         if (attackRolledChance <= neededChance)
         {
-            float resultDamage = character.attackDamage * damageMultiplier;
+            float resultDamage = player.attackDamage * damageMultiplier;
             enemyHealth -= (int)Math.Round(resultDamage);
             enemyHealthBar.value = enemyHealth;
             StartCoroutine(ShowMessage("Hit!", 3));
@@ -242,24 +275,16 @@ public class BattleSystemManager : MonoBehaviour
 
     IEnumerator EndBattle()
     {
-        // check if we won
         if (battleState == BattleState.WIN)
         {
-            // you may wish to display some kind
-            // of message or play a victory fanfare
-            // here
+            Destroy(enemyObj);
             StartCoroutine(ShowMessage("VICTORY", 10));
             yield return new WaitForSeconds(1);
             Debug.Log("WINNER");
         }
-        // otherwise check if we lost
-        // You probably want to display some kind of
-        // 'Game Over' screen to communicate to the 
-        // player that the game is lost
+
         else if (battleState == BattleState.LOST)
         {
-            // you may wish to display some kind
-            // of message or play a sad tune here!
             StartCoroutine(ShowMessage("YOU'RE DEAD", 10));
             yield return new WaitForSeconds(1);
             Debug.Log("LOST");

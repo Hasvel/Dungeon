@@ -10,7 +10,10 @@ public class PlayerData : ScriptableObject
     public int difficulty;
     public int gold;
 
-    public CharacterData character;
+    // Start class info
+    public string className;
+    public GameObject characterModel;
+    public Vector3 characterLocation;
 
     // Combat info
     public float chanceHead;

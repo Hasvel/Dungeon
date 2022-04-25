@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Samurai
   enemyModel: {fileID: 6277539640944837325, guid: b275ce0adc481274b8623b6e1a4288bb, type: 3}
-  enemyLocation: {x: 3.64, y: -0.45, z: 0}
-  chanceHead: 0.1
-  chanceArms: 0.3
-  chanceBody: 0.5
-  chanceLegs: 0.3
+  enemyLocation: {x: 3.34, y: -0.4, z: 0}
+  chanceHead: 0.2
+  chanceArms: 0.2
+  chanceBody: 0.4
+  chanceLegs: 0.4
   multHead: 2
-  multArms: 2.5
+  multArms: 2
   multBody: 1
   multLegs: 1
   maxHealth: 20
   curHealth: 20
-  attackDamage: 5
+  attackDamage: 10
   pierceAttackDamage: 5
-  defence: 3
+  defence: 6

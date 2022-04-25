@@ -42,18 +42,40 @@ public class MenuManager : MonoBehaviour
             playerData.difficulty = difficulty;
             playerData.gold = 0;
 
-            switch(currentClass)
+            foreach(CharacterData character in characters)
             {
-                case Characters.ARCHER:
-                    playerData.character = characters[0];
-                    break;
-                case Characters.KNIGHT:
-                    playerData.character = characters[1];
-                    break;
-                case Characters.KING:
-                    playerData.character = characters[2];
-                    break;
+                if(character.className.ToLower() == currentClass.ToString().ToLower())
+                {
+                    playerData.className = character.className;
+                    playerData.characterModel = character.characterModel;
+                    playerData.characterLocation = character.characterLocation;
+
+                    playerData.chanceHead = character.chanceHead;
+                    playerData.chanceArms = character.chanceArms;
+                    playerData.chanceBody = character.chanceBody;
+                    playerData.chanceLegs = character.chanceLegs;
+
+                    playerData.maxHealth = character.maxHealth;
+                    playerData.curHealth = character.maxHealth;
+                    playerData.attackDamage = character.attackDamage;
+                    playerData.addAttackChance = character.addAttackChance;
+                    playerData.pierceAttackDamage = character.pierceAttackDamage;
+                    playerData.defence = character.defence;
+                }
             }
+
+            //switch(currentClass)
+            //{
+            //    case Characters.ARCHER:
+            //        playerData.character = characters[0];
+            //        break;
+            //    case Characters.KNIGHT:
+            //        playerData.character = characters[1];
+            //        break;
+            //    case Characters.KING:
+            //        playerData.character = characters[2];
+            //        break;
+            //}
 
             SceneManager.LoadScene("Doors");
         }
