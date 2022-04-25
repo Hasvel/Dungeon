@@ -55,7 +55,7 @@ public class MenuManager : MonoBehaviour
                     break;
             }
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Doors");
         }
     }
 
