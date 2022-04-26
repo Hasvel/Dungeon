@@ -61,24 +61,18 @@ public class MenuManager : MonoBehaviour
                     playerData.addAttackChance = character.addAttackChance;
                     playerData.pierceAttackDamage = character.pierceAttackDamage;
                     playerData.defence = character.defence;
+
+                    SceneManager.LoadScene("Doors");
                 }
             }
-
-            //switch(currentClass)
-            //{
-            //    case Characters.ARCHER:
-            //        playerData.character = characters[0];
-            //        break;
-            //    case Characters.KNIGHT:
-            //        playerData.character = characters[1];
-            //        break;
-            //    case Characters.KING:
-            //        playerData.character = characters[2];
-            //        break;
-            //}
-
-            SceneManager.LoadScene("Doors");
         }
+    }
+
+    public void ContinueGame()
+    {
+        gameObject.GetComponent<SaveSystem>().ReadPlayerData();
+
+        SceneManager.LoadScene("Doors");
     }
 
     public void ExitGame()

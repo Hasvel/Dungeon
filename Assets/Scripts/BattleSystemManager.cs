@@ -26,8 +26,10 @@ public class BattleSystemManager : MonoBehaviour
     }
 
     public PlayerData player;
-    public EnemyData enemy;
+    private GameObject playerObj;
+    private EnemyData enemy;
     private GameObject enemyObj;
+    public EnemySpawner enemySpawner;
 
     private int enemyHealth;
 
@@ -39,6 +41,7 @@ public class BattleSystemManager : MonoBehaviour
     public Text announcementText;
     public Text playerNameText;
     public Text classNameText;
+    public Text levelText;
 
     public Slider playerHealthBar;
     public Slider enemyHealthBar;
@@ -46,6 +49,9 @@ public class BattleSystemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // randomize enemy
+        enemy = enemySpawner.spawnEnemy();
+
         battleState = BattleState.START;
         curBodyRegion = BodyRegion.HEAD;
 
@@ -55,6 +61,7 @@ public class BattleSystemManager : MonoBehaviour
         announcementText.enabled = false;
         playerNameText.text = player.playerName;
         classNameText.text = player.className;
+        levelText.text = player.currentLevel.ToString();
 
         playerHealthBar.maxValue = player.maxHealth;
         enemyHealthBar.maxValue = enemy.maxHealth;
@@ -73,7 +80,7 @@ public class BattleSystemManager : MonoBehaviour
     IEnumerator BeginBattle()
     {
         // spawn characters on the platforms
-        Instantiate(player.characterModel.gameObject, player.characterLocation, player.characterModel.transform.rotation);
+        playerObj = Instantiate(player.characterModel.gameObject, player.characterLocation, player.characterModel.transform.rotation);
         enemyObj = Instantiate(enemy.enemyModel.gameObject, enemy.enemyLocation, enemy.enemyModel.transform.rotation);
 
         // set the characters stats in HUD displays
@@ -134,6 +141,8 @@ public class BattleSystemManager : MonoBehaviour
         {
             // saving
             player.currentLevel++;
+            gameObject.GetComponent<SaveSystem>().SavePlayerData();
+
             SceneManager.LoadScene("Doors");
         }
         else if (battleState == BattleState.LOST)
@@ -156,7 +165,7 @@ public class BattleSystemManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // Enemy rolls dice
-        float attackRolledChance = Random.Range(0.0f, 1.0f);
+        float attackRolledChance = Random.Range(0.0f, 1.0f) - player.difficulty/200;
 
         // Determing body part to attack
         float neededChance = 0.2f;
@@ -180,7 +189,13 @@ public class BattleSystemManager : MonoBehaviour
         // Determing is attack succesful
         if (attackRolledChance <= neededChance)
         {
-            player.curHealth -= enemy.attackDamage;
+            int defenceDamage = enemy.attackDamage - player.defence;
+            if (defenceDamage < 0)
+                defenceDamage = 0;
+
+            int resultDamage = enemy.pierceAttackDamage + defenceDamage;
+
+            player.curHealth -= resultDamage;
             playerHealthBar.value = player.curHealth;
             StartCoroutine(ShowMessage("Enemy Hits!", 3));
         }
@@ -241,7 +256,11 @@ public class BattleSystemManager : MonoBehaviour
         // Determing if is attack succesful
         if (attackRolledChance <= neededChance)
         {
-            float resultDamage = player.attackDamage * damageMultiplier;
+            int defenceDamage = player.attackDamage - enemy.defence;
+            if(defenceDamage < 0)
+                defenceDamage = 0;
+
+            float resultDamage = (player.pierceAttackDamage + defenceDamage) * damageMultiplier;
             enemyHealth -= (int)Math.Round(resultDamage);
             enemyHealthBar.value = enemyHealth;
             StartCoroutine(ShowMessage("Hit!", 3));
@@ -282,9 +301,9 @@ public class BattleSystemManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             Debug.Log("WINNER");
         }
-
         else if (battleState == BattleState.LOST)
         {
+            Destroy(playerObj);
             StartCoroutine(ShowMessage("YOU'RE DEAD", 10));
             yield return new WaitForSeconds(1);
             Debug.Log("LOST");

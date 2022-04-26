@@ -1344,6 +1344,7 @@ GameObject:
   - component: {fileID: 650078179}
   - component: {fileID: 650078178}
   - component: {fileID: 650078182}
+  - component: {fileID: 650078184}
   - component: {fileID: 650078183}
   m_Layer: 5
   m_Name: MenuCanvas
@@ -1552,6 +1553,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &650078184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650078177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa8db710099e954a805936fb08889d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 1ac7a3763ef5b9a46a7574eb57d88616, type: 2}
 --- !u!1 &660229378
 GameObject:
   m_ObjectHideFlags: 0

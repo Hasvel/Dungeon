@@ -15,16 +15,16 @@ MonoBehaviour:
   enemyName: Wizard
   enemyModel: {fileID: 1423846565139254882, guid: 0b6d62c49d594d84e9585360c681dd81, type: 3}
   enemyLocation: {x: 3.091, y: 0.309, z: 0}
-  chanceHead: 0
-  chanceArms: 0
-  chanceBody: 0
-  chanceLegs: 0
-  multHead: 0
-  multArms: 0
-  multBody: 0
-  multLegs: 0
-  maxHealth: 0
-  curHealth: 0
-  attackDamage: 0
-  pierceAttackDamage: 0
-  defence: 0
+  chanceHead: 0.3
+  chanceArms: 0.4
+  chanceBody: 0.7
+  chanceLegs: 0.4
+  multHead: 1
+  multArms: 2
+  multBody: 1
+  multLegs: 1
+  maxHealth: 20
+  curHealth: 20
+  attackDamage: 5
+  pierceAttackDamage: 5
+  defence: 4

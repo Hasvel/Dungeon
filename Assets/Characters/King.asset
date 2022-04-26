@@ -16,12 +16,12 @@ MonoBehaviour:
   characterModel: {fileID: 1148118128229101900, guid: 451474abe0816ce41b6879329a6a70e8, type: 3}
   characterLocation: {x: -3.4745455, y: -0.29, z: 0}
   chanceHead: 0.2
-  chanceArms: 0.4
-  chanceBody: 0.8
+  chanceArms: 0.3
+  chanceBody: 0.6
   chanceLegs: 0.4
-  maxHealth: 30
+  maxHealth: 20
   curHealth: 20
-  attackDamage: 6
+  attackDamage: 4
   addAttackChance: 0.1
-  pierceAttackDamage: 2
-  defence: 4
+  pierceAttackDamage: 4
+  defence: 2

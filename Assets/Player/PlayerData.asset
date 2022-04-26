@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a579090410a54e976537a13c6f58b, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerName: Harry
+  playerName: Larry
   currentLevel: 1
   difficulty: 0
   gold: 0
@@ -24,8 +24,8 @@ MonoBehaviour:
   chanceBody: 0.8
   chanceLegs: 0.4
   maxHealth: 30
-  curHealth: 30
+  curHealth: 20
   attackDamage: 6
-  addAttackChance: 1
+  addAttackChance: 0.1
   pierceAttackDamage: 2
   defence: 4

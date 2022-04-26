@@ -20,8 +20,8 @@ MonoBehaviour:
   chanceBody: 0.8
   chanceLegs: 0.4
   maxHealth: 30
-  curHealth: 20
-  attackDamage: 6
-  addAttackChance: 0.1
-  pierceAttackDamage: 2
-  defence: 4
+  curHealth: 30
+  attackDamage: 2
+  addAttackChance: 0
+  pierceAttackDamage: 5
+  defence: 5
