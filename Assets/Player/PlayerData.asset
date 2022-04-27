@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a579090410a54e976537a13c6f58b, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerName: Larry
-  currentLevel: 1
+  playerName: 
+  currentLevel: 0
   difficulty: 0
   gold: 0
-  className: Archer
-  characterModel: {fileID: 5345705090480270259, guid: 3b917da5784b6374cbbdb0776c146d39, type: 3}
-  characterLocation: {x: -3.66, y: -0.3, z: 0}
-  chanceHead: 0.2
-  chanceArms: 0.4
-  chanceBody: 0.8
-  chanceLegs: 0.4
-  maxHealth: 30
-  curHealth: 20
-  attackDamage: 6
-  addAttackChance: 0.1
-  pierceAttackDamage: 2
-  defence: 4
+  className: 
+  characterModel: {fileID: 0}
+  characterLocation: {x: 0, y: 0, z: 0}
+  chanceHead: 0
+  chanceArms: 0
+  chanceBody: 0
+  chanceLegs: 0
+  maxHealth: 0
+  curHealth: 0
+  attackDamage: 0
+  addAttackChance: 0
+  pierceAttackDamage: 0
+  defence: 0

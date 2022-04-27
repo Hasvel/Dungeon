@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa8db710099e954a805936fb08889d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 1ac7a3763ef5b9a46a7574eb57d88616, type: 2}
+  playerData: {fileID: 0}
 --- !u!1 &660229378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,7 +3184,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1477327291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 650078182}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ContinueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1477327291
 MonoBehaviour:
   m_ObjectHideFlags: 0

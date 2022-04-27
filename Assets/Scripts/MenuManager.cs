@@ -31,6 +31,8 @@ public class MenuManager : MonoBehaviour
         //Adds a listener to the main slider and invokes a method when the value changes.
         difficultySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         playerNameField.onValueChanged.AddListener(delegate { NameChangeCheck(); });
+
+        DontDestroyOnLoad(playerData);
     }
 
     public void StartNewGame()
@@ -62,6 +64,7 @@ public class MenuManager : MonoBehaviour
                     playerData.pierceAttackDamage = character.pierceAttackDamage;
                     playerData.defence = character.defence;
 
+                    Debug.Log($"Menu End - Player Name: {playerData.playerName} {playerName}");
                     SceneManager.LoadScene("Doors");
                 }
             }
@@ -70,9 +73,8 @@ public class MenuManager : MonoBehaviour
 
     public void ContinueGame()
     {
-        gameObject.GetComponent<SaveSystem>().ReadPlayerData();
-
-        SceneManager.LoadScene("Doors");
+        if(gameObject.GetComponent<SaveSystem>().ReadPlayerData())
+            SceneManager.LoadScene("Doors");
     }
 
     public void ExitGame()

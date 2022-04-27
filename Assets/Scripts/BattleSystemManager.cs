@@ -49,6 +49,8 @@ public class BattleSystemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log($"Start battle - Player Name: {player.playerName} {player.difficulty}");
+
         // randomize enemy
         enemy = enemySpawner.spawnEnemy();
 
@@ -152,6 +154,11 @@ public class BattleSystemManager : MonoBehaviour
         }
     }
 
+    public void OnExitButtonPress()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     IEnumerator PlayerTurn()
     {
         StartCoroutine(ShowMessage("Player Turn", 3));
@@ -165,7 +172,7 @@ public class BattleSystemManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // Enemy rolls dice
-        float attackRolledChance = Random.Range(0.0f, 1.0f) - player.difficulty/200;
+        float attackRolledChance = Random.Range(0.0f, 1.0f) - (float)player.difficulty/200;
 
         // Determing body part to attack
         float neededChance = 0.2f;
@@ -203,7 +210,7 @@ public class BattleSystemManager : MonoBehaviour
         {
             StartCoroutine(ShowMessage("Enemy Misses", 3));
         }
-        Debug.Log($"Enemy Turn! Rolled - {attackRolledChance}, Needed - {neededChance}");
+        Debug.Log($"Enemy Turn! Rolled - {attackRolledChance} {player.difficulty/200}, Needed - {neededChance}");
         Debug.Log($"Player Health: {player.curHealth}");
         yield return new WaitForSeconds(3);
 
@@ -228,7 +235,7 @@ public class BattleSystemManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         // Player rolls dice
-        float attackRolledChance = Random.Range(0.0f, 1.0f) - player.addAttackChance;
+        float attackRolledChance = Random.Range(0.0f, 1.0f) - player.addAttackChance + (float)player.difficulty / 200;
 
         // Determing current chance of current body part
         float neededChance = 0.2f;

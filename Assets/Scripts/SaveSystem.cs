@@ -6,26 +6,27 @@ using UnityEngine;
 public class SaveSystem: MonoBehaviour
 {
     public PlayerData playerData;
-    string saveFile;
+    string savePath;
 
     void Awake()
     {
         // Update the path once the persistent path exists.
-        saveFile = Application.persistentDataPath + "/saveData.json";
+        savePath = Application.persistentDataPath + "/saveData.json";
     }
 
     public void SavePlayerData()
     {
+        Debug.Log($"{savePath}");
         string saveFile = JsonUtility.ToJson(playerData);
-        File.WriteAllText(saveFile, saveFile);
+        File.WriteAllText(savePath, saveFile);
     }
 
     public bool ReadPlayerData()
     {
-        if (File.Exists(saveFile))
+        if (File.Exists(savePath))
         {
             // Read the entire file and save its contents.
-            string fileContents = File.ReadAllText(saveFile);
+            string fileContents = File.ReadAllText(savePath);
 
             // Deserialize the JSON data 
             //  into a pattern matching the GameData class.
