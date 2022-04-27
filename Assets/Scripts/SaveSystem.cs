@@ -30,7 +30,28 @@ public class SaveSystem: MonoBehaviour
 
             // Deserialize the JSON data 
             //  into a pattern matching the GameData class.
-            playerData = JsonUtility.FromJson<PlayerData>(fileContents);
+            UnitStats savedPlayerData = JsonUtility.FromJson<UnitStats>(fileContents);
+
+            playerData.playerName = savedPlayerData.playerName;
+            playerData.currentLevel = savedPlayerData.currentLevel;
+            playerData.difficulty = savedPlayerData.difficulty;
+            playerData.gold = savedPlayerData.gold;
+
+            playerData.className = savedPlayerData.className;
+            playerData.characterModel = savedPlayerData.characterModel;
+            playerData.characterLocation = savedPlayerData.characterLocation;
+
+            playerData.chanceHead = savedPlayerData.chanceHead;
+            playerData.chanceArms = savedPlayerData.chanceArms;
+            playerData.chanceBody = savedPlayerData.chanceBody;
+            playerData.chanceLegs = savedPlayerData.chanceLegs;
+
+            playerData.maxHealth = savedPlayerData.maxHealth;
+            playerData.curHealth = savedPlayerData.curHealth;
+            playerData.attackDamage = savedPlayerData.attackDamage;
+            playerData.addAttackChance = savedPlayerData.addAttackChance;
+            playerData.pierceAttackDamage = savedPlayerData.pierceAttackDamage;
+            playerData.defence = savedPlayerData.defence;
 
             return true;
         }
