@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: Wizard
   enemyModel: {fileID: 1423846565139254882, guid: 0b6d62c49d594d84e9585360c681dd81, type: 3}
   enemyLocation: {x: 3.091, y: 0.309, z: 0}
+  gold: 8
   chanceHead: 0.3
   chanceArms: 0.4
   chanceBody: 0.7

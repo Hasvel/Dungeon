@@ -143,6 +143,7 @@ public class BattleSystemManager : MonoBehaviour
         {
             // saving
             player.currentLevel++;
+            player.gold += enemy.gold;
             gameObject.GetComponent<SaveSystem>().SavePlayerData();
 
             SceneManager.LoadScene("Doors");

@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: DeathBringer
   enemyModel: {fileID: 4546492452336243085, guid: 451db759d194ad841a1458aea6cc5dd6, type: 3}
   enemyLocation: {x: 3.34, y: 0.11, z: 0}
+  gold: 20
   chanceHead: 0.2
   chanceArms: 0.6
   chanceBody: 0.8

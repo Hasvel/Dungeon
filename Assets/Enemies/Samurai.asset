@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: Samurai
   enemyModel: {fileID: 6277539640944837325, guid: b275ce0adc481274b8623b6e1a4288bb, type: 3}
   enemyLocation: {x: 3.34, y: -0.4, z: 0}
+  gold: 10
   chanceHead: 0.2
   chanceArms: 0.2
   chanceBody: 0.4

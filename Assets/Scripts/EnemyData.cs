@@ -8,7 +8,9 @@ public class EnemyData : ScriptableObject
 {
     public string enemyName;
     public GameObject enemyModel; 
-    public Vector3 enemyLocation; 
+    public Vector3 enemyLocation;
+
+    public int gold;
 
     // Combat info
     public float chanceHead;

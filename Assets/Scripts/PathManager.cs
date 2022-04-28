@@ -14,6 +14,13 @@ public class PathManager : MonoBehaviour
     }
     public void StartBattleScene()
     {
-        SceneManager.LoadScene("BattleScene");
+        if(playerData.currentLevel % 3 == 0)
+        {
+            SceneManager.LoadScene("TraderScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("BattleScene");
+        }
     }
 }
