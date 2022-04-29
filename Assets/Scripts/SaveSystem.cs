@@ -6,17 +6,21 @@ using UnityEngine;
 public class SaveSystem: MonoBehaviour
 {
     public PlayerData playerData;
+    private List<GameResult> gameResults;
     string savePath;
+    string saveGlory;
 
     void Awake()
     {
         // Update the path once the persistent path exists.
         savePath = Application.persistentDataPath + "/saveData.json";
+        saveGlory = Application.persistentDataPath + "/saveGlory.json";
+
+        gameResults = new List<GameResult>();
     }
 
     public void SavePlayerData()
     {
-        Debug.Log($"{savePath}");
         string saveFile = JsonUtility.ToJson(playerData);
         File.WriteAllText(savePath, saveFile);
     }
@@ -56,5 +60,38 @@ public class SaveSystem: MonoBehaviour
             return true;
         }
         else return false;
-    }    
+    }   
+    
+    public void AddToGloryTable(GameResult gameResult)
+    {
+        gameResults.Add(gameResult);
+        SaveGloryTable();
+    }
+    public void SaveGloryTable()
+    {
+        string saveFile = JsonUtility.ToJson(gameResults);
+        File.WriteAllText(saveGlory, saveFile);
+    }
+
+    private bool ReadGloryTabe()
+    {
+        if (File.Exists(saveGlory))
+        {
+            string fileContents = File.ReadAllText(saveGlory);
+            gameResults = JsonUtility.FromJson<List<GameResult>>(fileContents);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public List<GameResult> GetGloryTable()
+    {
+        if (ReadGloryTabe())
+        {
+            return new List<GameResult>(gameResults);
+        }
+        else
+            return null;
+    }
 }

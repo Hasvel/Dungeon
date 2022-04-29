@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a579090410a54e976537a13c6f58b, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerName: 
-  currentLevel: 0
-  difficulty: 0
+  playerName: Sir
+  currentLevel: 1
+  difficulty: -55
   gold: 0
-  className: 
-  characterModel: {fileID: 0}
-  characterLocation: {x: 0, y: 0, z: 0}
-  chanceHead: 0
-  chanceArms: 0
-  chanceBody: 0
-  chanceLegs: 0
-  maxHealth: 0
-  curHealth: 0
-  attackDamage: 0
+  className: Knight
+  characterModel: {fileID: 6213809201886708114, guid: a95e7c28c28571543926717581d2cf04, type: 3}
+  characterLocation: {x: -3.3791027, y: -0.54726315, z: 0}
+  chanceHead: 0.2
+  chanceArms: 0.4
+  chanceBody: 0.8
+  chanceLegs: 0.4
+  maxHealth: 30
+  curHealth: 30
+  attackDamage: 2
   addAttackChance: 0
-  pierceAttackDamage: 0
-  defence: 0
+  pierceAttackDamage: 5
+  defence: 5

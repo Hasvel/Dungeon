@@ -146,12 +146,14 @@ public class BattleSystemManager : MonoBehaviour
             player.gold += enemy.gold;
             gameObject.GetComponent<SaveSystem>().SavePlayerData();
 
-            SceneManager.LoadScene("Doors");
+            if(player.currentLevel > 5)
+                SceneManager.LoadScene("EndScene");
+            else
+                SceneManager.LoadScene("Doors");
         }
         else if (battleState == BattleState.LOST)
         {
-            // glory table
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("EndScene");
         }
     }
 
