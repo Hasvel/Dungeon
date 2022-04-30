@@ -38,7 +38,7 @@ public class EndSceneManager : MonoBehaviour
     {
         gameObject.GetComponent<SaveSystem>().AddToGloryTable(new GameResult(playerData.playerName, 
             playerData.className, playerData.currentLevel.ToString()));
-        gameObject.GetComponent<SaveSystem>().SaveGloryTable();
+
         SceneManager.LoadScene("MainMenu");
     }
 }

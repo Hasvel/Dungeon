@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,9 +7,15 @@ using UnityEngine;
 public class SaveSystem: MonoBehaviour
 {
     public PlayerData playerData;
-    private List<GameResult> gameResults;
+    [SerializeField] private List<GameResult> gameResults;
     string savePath;
     string saveGlory;
+
+    [Serializable]
+    private class SaveWrapper
+    {
+        public List<GameResult> gameResultsWrapped;
+    }
 
     void Awake()
     {
@@ -64,12 +71,16 @@ public class SaveSystem: MonoBehaviour
     
     public void AddToGloryTable(GameResult gameResult)
     {
+        ReadGloryTabe();
         gameResults.Add(gameResult);
         SaveGloryTable();
     }
     public void SaveGloryTable()
     {
-        string saveFile = JsonUtility.ToJson(gameResults);
+        SaveWrapper saveWrapper = new SaveWrapper();
+        saveWrapper.gameResultsWrapped = gameResults;
+        string saveFile = JsonUtility.ToJson(saveWrapper);
+
         File.WriteAllText(saveGlory, saveFile);
     }
 
@@ -78,7 +89,8 @@ public class SaveSystem: MonoBehaviour
         if (File.Exists(saveGlory))
         {
             string fileContents = File.ReadAllText(saveGlory);
-            gameResults = JsonUtility.FromJson<List<GameResult>>(fileContents);
+            SaveWrapper saveWrapper = JsonUtility.FromJson<SaveWrapper>(fileContents);
+            gameResults = saveWrapper.gameResultsWrapped;
             return true;
         }
         else
